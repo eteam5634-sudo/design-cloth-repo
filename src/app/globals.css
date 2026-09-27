@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-jost), "Jost", sans-serif;
+  --font-serif: var(--font-bodoni), "Bodoni Moda", Georgia, serif;
+  --color-ivory: #f7f4ef;
+  --color-cream: #efeae3;
+  --color-beige: #e4dcd0;
+  --color-ink: #141414;
+  --color-muted: #6f6962;
+  --color-gold: #a89474;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f7f4ef;
+  color: #141414;
+  font-family: var(--font-jost), "Jost", sans-serif;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: #141414;
+  color: #f7f4ef;
+}
+
+:focus-visible {
+  outline: 1px solid #a89474;
+  outline-offset: 3px;
+}
+
+button,
+a,
+summary,
+[role="button"] {
+  cursor: pointer;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-settle {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scroll-line {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 1s ease both;
+}
+
+.hero-settle {
+  animation: hero-settle 1.8s ease both;
+}
+
+.scroll-line {
+  animation: scroll-line 2.4s ease-in-out infinite;
+}
+
+.toast-in {
+  animation: toast-in 0.35s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
